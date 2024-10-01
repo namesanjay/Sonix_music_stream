@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height:30px;
+            width:60px;
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <input type="text" class="singer">
+        <input type="text" class="singer">
+        <input type="text" class="singer">
+        <input type="text" class="singer">
+        <!-- <button onclick="check()">Check</button> -->
+        <div onclick="check()">Click me </div>
+        <!-- <button type="submit">Submit</button> -->
+    </form>
+    <script>
+        // document.getElementById('form').addEventListener('submit',)
+    const check=()=>{
+            let data=document.getElementsByClassName('singer')
+            console.log(data[0].value)
+            console.log(data.length)
+            let array=[]
+            for(let i=0;i<data.length;i++)
+            array.push(data[i].value)
+            console.log(array)
+            
+        }
+    </script>
+</body>
+</html>

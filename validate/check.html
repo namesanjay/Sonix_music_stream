@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="user" name="user">
+    <button onclick="func()">Check</button>
+    <script>
+        function func(){
+           let user= document.getElementById('user').value;
+            const data={
+                'album':user
+            }
+            let option={
+                method:"POST",
+                headers:{
+                    'Content-type':'application/json'
+                },
+                body:JSON.stringify(data)
+            }
+            fetch("check_album.php",option)
+            .then(res=>res.text())
+            .then((data)=>{
+                console.log(data);
+                // (data==='1'?alert("muji"):alert("randi ko baan"))
+
+        })}
+    </script>
+</body>
+</html>

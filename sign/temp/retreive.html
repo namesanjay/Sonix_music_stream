@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <input type="text" id="user">
+    <button onclick="mainfunc()">submit</button>
+    <script>
+    //    async function store(){
+    //         fetch("http://127.0.0.1/project/temp/check.php")
+    //         .then(res=>res.json())
+    //         .then((value)=>{
+    //             console.log(value[0].artist_username);
+    //         })
+    //    }
+
+        // async function store(){
+        //     let value=document.getElementById('user').value
+        //     let options={
+        //         method:"POST",
+        //         body:value
+        //     }
+        //     let p=await fetch("http://127.0.0.1/project/temp/check.php",options)
+        //     let response=await p.json()
+        //     return response;
+        // }
+        // const mainfunc=async()=>{
+        //     console.log("muji")
+        //     let todo=await store();
+        //     console.log(todo)
+        // }
+    //     function mainfunc(){
+    //         const val=document.getElementById('user').value;
+    //         const data={
+    //             'user':val
+    //         };
+    //         fetch('http://127.0.0.1/project/temp/check.php', {
+    //   method: 'POST',
+    //   headers:{
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body:JSON.stringify(data)
+    // })
+    // .then(response => response.json()) // Parse the response as text
+    // .then(data => {
+    //   console.log(data);
+    //   return data; // Output the response from the PHP script
+    //   // You can update the DOM or display a success message here
+    // })
+    //     }
+
+    //     function main(){
+    //         let val=mainfunc()
+    //         console.log(val)
+    //     }
+
+        async function store(){
+            console.log("inside")
+           const val=document.getElementById("user").value;
+           const data={
+            'user':val
+           };
+           let option={
+            method:"POST",
+            headers:{
+                'Content-type':'application/json'
+            },
+            body:JSON.stringify(data)
+           }
+           let p=await fetch("http://127.0.0.1/project/temp/check.php",option)
+           let response=await p.json()
+           return response;
+        }
+
+        async function mainfunc(){
+            let data=await store();
+            console.log(data)
+
+            console.log(data.artist_username);
+        }
+
+    </script>
+</body>
+</html>

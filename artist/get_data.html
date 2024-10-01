@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+<script type="text/babel">
+    const root=ReactDOM.createRoot(document.getElementById('root'));
+    function App(){
+        const [val,setVal]=React.useState({
+            album_name:""
+        });
+
+        const[fetched,setFetched]=React.useState(val)
+
+        React.useEffect(function(){
+        fetch("load_table.php")
+        .then(response=>response.json())
+        .then(data=>(setFetched(data)))
+        
+    },[0])
+       let array=fetched
+    console.log(array[0].album_name);
+    }
+        // function App(){
+        //     const data=[
+        //         {"album":"Gravity"},{"album":"Hybrid Theory"}
+        //     ]
+        //     console.log(data)
+        //     console.log(data[1].album)
+        // }
+
+
+    root.render(<App />)
+</script>
+</body>
+</html>

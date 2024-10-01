@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height:20px;
+            width:50px;
+            border:2px solid black;
+            background-color: azure;
+        }
+        div:hover{
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body onload="store()">
+    
+    <form action="test.php" id="myform" method="post" enctype="multipart/form-data">
+        <input type="text" name="album" placeholder="Enter Album Name" id="alb_name" required>
+        <input type="file" name="audio" required id="audio">
+        <input type="text" name="sing1" placeholder="singer1 username" id="sing">
+        <input type="text" name="sing2"  placeholder="singer2 username">
+        <input type="text" name="sing3" placeholder="singer3 username">
+       <div onclick="mainfunc()">Click</div>
+        <button type="submit" id="sub" hidden></button>
+    </form>
+    <button onclick="print()">Print</button>
+    <script>
+       let array;
+      function store(){
+            fetch("http://127.0.0.1/project/artist/load_table.php")
+            .then(res=>res.json())
+            .then((value)=>{
+                console.log(value);
+            })
+       }
+    //    const print=()=>{
+    //     console.log(array.album_name)
+    //     if(document.getElementById('sing').value=="")
+    //     alert("muji null xa");
+    //    }
+       const check=()=>{
+        let name=document.getElementById('alb_name').value
+        console.log(name)
+        for(let i of array){
+            console.log(i)
+        //    console.log(typeof i)
+            if(name.toLowerCase()==i.album_name.toLowerCase()){
+                alert("Album does exist");
+                document.getElementById('sub').click();
+                return true;
+            }
+        } 
+        alert("Album doesnot exist")
+       }
+
+       const mainfunc=async()=>{
+            check();
+            
+       }
+       
+    </script>
+</body>
+</html>

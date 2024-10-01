@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="check.php" method="post">
+        <input type="text" name="user" placeholder="username">
+        <input type="submit" value="submit">
+    </form>
+    <button onclick="retreive()">Retreive</button>
+
+    
+    <input type="file"  id="file">
+    <button onclick="isAudioFile()">Check</button>
+    <script>
+        function isAudioFile() {
+        let filename=document.getElementById('file').value
+        console.log(filename)
+  // List of common audio file extensions
+  const audioExtensions = ['mp3', 'wav', 'ogg', 'flac', 'aac', 'm4a', 'wma', 'aiff', 'alac'];
+
+  // Function to get the file extension
+  function getFileExtension(filename) {
+    const match = filename.toLowerCase().match(/\.([^.]+)$/);
+    return match ? match[1] : null;
+  }
+
+  // Get the file extension
+  const extension = getFileExtension(filename);
+
+  // Check if the extension is in the list of audio extensions
+//   return audioExtensions.includes(extension);
+  if( audioExtensions.includes(extension))
+  alert("Audio file");
+else
+alert("Not Audio")
+}   
+ function retreive(){
+    fetch("http://127.0.0.1/project/temp/check.php")
+    .then(res=>res.json())
+    .then((value)=>{
+    console.log(value)
+    })
+}
+
+    </script>
+</body>
+</html>

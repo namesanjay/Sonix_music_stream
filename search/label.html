@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Div Click Event</title>
+</head>
+<body>
+  <div id="container"></div>
+
+  <form action="localhost/project/front/artist.php" method="get">
+    <input type="text" name="username">
+    <input type="submit" value="Sub">
+  </form>
+  <button onclick="func1()">Ckjsdbch</button>
+  <script>
+    // Function to be called on click
+    function func1(val) {
+      console.log(val);
+    }
+
+    // Value to pass to the function
+    const val = 'This is a value';
+
+    // Create the div element
+    let div = document.createElement('div');
+    div.textContent = 'Click me!';
+    div.style.width = '100px';
+    div.style.height = '100px';
+    div.style.border = '1px solid black';
+    div.style.display = 'flex';
+    div.style.justifyContent = 'center';
+    div.style.alignItems = 'center';
+    div.style.cursor = 'pointer';
+
+    // Add the onclick event
+    div.onclick = function() {
+      func1(val);
+    };
+
+    function func1(){
+      location.href="http://localhost/project/search/index.php";
+    }
+    // Append the div to the container
+    document.getElementById('container').appendChild(div);
+
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+.song-item{
+    height:56px;
+    width:100%;
+    border:1px solid black;
+    margin-top:2px;
+    display: flex;
+  flex-wrap: wrap;
+  /* /* justify-content:space-evenly;  */
+  align-items:center;
+  font-size:20px;
+  font-weight: 700;
+}
+.song-item>img{
+    height:40px;
+    width:40px;
+    margin-left:10px;
+    margin-bottom: 5px;
+}
+
+.song-artist{
+    flex: 1;
+    text-align: center;
+    /* height: 100%; */
+}
+.song-album{
+    flex:1;
+    text-align: right;
+    margin-right: 20px;
+}
+.song-title{
+    flex:1;
+    text-align: left;
+    margin-left:20px;
+}
+#root{
+    position:absolute;
+    left:250px;
+    width:80vw;
+    height:80vh;
+}
+#lab{
+    visibility: hidden;
+}
+
+/* .artist,.album{ */
+    /* position: relative;
+    height:100px;
+    width:100%;
+    border:1px solid black;
+    margin-top:2px;
+    display: flex;
+  flex-wrap: wrap; */
+  /* /* justify-content:space-evenly;  */
+  /* align-items:center;
+  font-size:20px;
+  font-weight: 700; */
+/* } */
+.album>h3{
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+.artist>img{
+    height:228px;
+    width:240px;
+    border-radius: 50%;
+}
+.artist{
+    height:384px;
+    width:461px;
+    border:2px solid black;
+}
